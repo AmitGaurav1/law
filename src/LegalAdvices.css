@@ -1,0 +1,21 @@
+.LegalAdvices{
+    height: 650px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.LegalAdvices button{
+    background-color: #2a0845;
+    height: 50px;
+    width: 120px;
+}
+button a{
+    color: #fff;
+}
+.LegalAdvices img{
+    height: 400px;
+    width: 600px;
+}

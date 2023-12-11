@@ -1,0 +1,36 @@
+.Introduction {
+    margin: 20px 20px;
+    color: white;
+    font-size: large;
+    display : flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.Introtext {
+    height:210px;
+    width:840px;
+}
+.Introduction img {
+    height:270px ;
+    width :270px;
+    margin: auto;
+    border-radius: 273px;
+}
+
+.Objective {
+    margin: 20px 20px;
+    color: white;
+    font-size: large;
+}
+
+.Benefits {
+    margin: 20px 20px;
+    color: white;
+    font-size: large;
+}
+
+.Impact {
+    margin: 20px 20px;
+    color: white;
+    font-size: large;
+}
