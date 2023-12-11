@@ -1,33 +1,118 @@
 import React, { useState } from 'react';
 import './Login.css';
 import ReactDOM from 'react-dom/client';
+import { useNavigate } from 'react-router-dom';
+
+
     
 function Login() {
     const [sigupForm,setSignUpForm]=useState(false);
     function OpenSignUpForm(){
         setSignUpForm((form)=>!form);
     }
+
+    // States for signin account 
+    const [signinemail,setsigninemail]=useState("");
+    const[signinpassword,setsigninpassword]=useState("");
+    const [signinsuccessfull,setsigninsuccessfull]=useState("");
+    const [signinerror,setsigninerror]=useState("");
+    async function signinsubmit() {
+        const data = {
+          email: signinemail,
+          password: signinpassword,
+        };
+      
+        try {
+          const response = await fetch("http://localhost:3002/signin", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+      
+          if (!response) {
+           setsigninerror("Sign in Failed")
+          }
+      
+          const result = await response.json();
+          setsigninsuccessfull(result.message);
+          setsigninerror('');
+        } catch (err) {
+          setsigninsuccessfull('');
+          setsigninerror(err.message || 'An error occurred');
+        }
+      }
+      
+
+    //   states for login 
+    const [loginemail,setloginemail]=useState("");
+    const[loginpassword,setloginpassword]=useState("");
+    const [loginsuccessfull,setloginsuccessfull]=useState("");
+    const [loginerror,setloginerror]=useState("");
+
+    const navigate=useNavigate();
+    const loginsubmit=async ()=>{
+        const data={
+            email:loginemail,
+            password:loginpassword,
+        }
+        try{
+        const response=await fetch('http://localhost:3002/login',{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+      
+          if (!response) {
+           setloginerror("Log in Failed")
+          }
+      
+          const result = await response.json();
+          setloginsuccessfull(result.message);
+          setloginerror('');
+          setloginemail('')
+          setloginpassword('');
+          setTimeout(() => {
+            navigate('/');
+            
+          }, 2000);
+        } catch (err) {
+          setloginsuccessfull('');
+          setloginerror(err.message || 'An error occurred');
+        }
+      }
+
+
+
+
+      
     return (
         <div>
             <div className="body-container">
                 <div className={`${sigupForm?'right-panel-active':""} container `} id="container">
                     <div>
                         <div className="form-container sign-up-container">
-                            <form action="#" className='login-container' >
+                            <form action="#" >
                                 <h1>Create Account</h1>
                                 <input type="text" placeholder="Name" />
-                                <input type="email" placeholder="Email" />
-                                <input type="password" placeholder="Password" />
-                                <div className="btn-grad">Sign Up</div>
+                                <input type="email" value={signinemail} onChange={(event)=>{setsigninemail(event.target.value)}} placeholder="Email" />
+                                
+                                <input type="password" value={signinpassword} onChange={(event=>{setsigninpassword(event.target.value)})} placeholder="Password" />
+                                <button className="btn-grad" onClick={signinsubmit}>Sign Up</button>
+                                {signinsuccessfull}{signinerror}
                             </form>
                         </div>
                         <div className="form-container sign-in-container">
-                            <form action="#" className='login-container'>
+                            <form action="#">
                                 <h1>Sign In</h1>
-                                <input type="email" placeholder="Email" />
-                                <input type="password" placeholder="Password" />
+                                <input type="email" value={loginemail} onChange={(event)=>setloginemail(event.target.value)} placeholder="Email" />
+                                <input type="password" value={loginpassword} onChange={(event)=>setloginpassword(event.target.value)} placeholder="Password" />
                                 <a href="#">Forgot your password?</a>
-                                <div className="btn-grad">Sign In</div>
+                                <button className="btn-grad" onClick={loginsubmit}>Log In</button>
+                                {loginsuccessfull}{loginerror}
                             </form>
                         </div>
                     </div>
