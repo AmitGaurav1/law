@@ -6,31 +6,84 @@
     flex-direction: row;
     overflow: hidden;
 }
+.Introtext h3{
+    color:rgb(32, 215, 228);
+}
 .Introtext {
     height:210px;
     width:840px;
+    
 }
 .Introduction img {
     height:270px ;
     width :270px;
-    margin: auto;
+    display :flex;
     border-radius: 273px;
+    margin : 20px 20px;
 }
-
 .Objective {
     margin: 20px 20px;
     color: white;
     font-size: large;
-}
+    display : flex;
+    flex-direction: row;
+    overflow: hidden;
 
+}
+ .Objective h3{
+    color :rgb(32, 215, 228);
+  
+  
+ }
+.Objtext {
+    height:210px;
+    width:840px;
+    
+
+}
+.Objective img{
+    height:270px;
+    width:270px;
+    margin:14px;
+    border-radius: 273px;
+    display :flex;
+}
 .Benefits {
     margin: 20px 20px;
     color: white;
     font-size: large;
-}
+    display : flex;
+    flex-direction: row;
+    overflow: hidden;
 
+
+}
+.Benefits h3{
+    color :rgb(32, 215, 228); 
+}
+.benetext {
+    height:210px;
+    width:840px;
+    
+}
+.Benefits img {
+    height:270px;
+    width:270px;
+    margin:14px;
+    border-radius: 273px;;
+}
 .Impact {
     margin: 20px 20px;
     color: white;
     font-size: large;
+}
+.Impact h3{
+    color :rgb(32, 215, 228);
+}
+
+.CS h5 {
+    color :rgb(32, 215, 228); 
+}
+.CPS h5 {
+    color :rgb(32, 215, 228); 
 }

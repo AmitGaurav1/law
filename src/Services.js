@@ -1,6 +1,8 @@
 import React from 'react'
 import './Services.css';
 import logo from './Logo.jpg';
+import Obj from './obj.jpg';
+import Benefit from './benefit.jpg';
 function Services() {
   return (
     <div>
@@ -15,20 +17,26 @@ function Services() {
         <img src={logo} alt='logo'/>
        </div>
        <div className='Objective'>
-        <h3>Objective</h3>
+       <div className='Objtext'>
+       <h3>Objective</h3>
         <ul>
             <li><b>Enlighten people :</b> Our platform will give people knowledge of Righteousness of law.</li>
             <li><b>Prevent Scammers :</b> people will now not tolerate any kind of wrong doing by scammers.</li>
             <li><b>Influence over law :</b> With our platform people will learn over new law or existing law.</li>
         </ul>
        </div>
+       <img src={Obj} alt='Obj'/>
+       </div>
        <div className='Benefits'>
+        <div className='benetext'>
         <h3>Benefits for lawyers and citizens</h3>
         <ul>
-            <li><b>For Lawyers :</b>Lawyers will get opportunity to explore  and get internship . Also it will give them the experience for their future for how to deal with real world problems.</li>
-            <li><b>For Citizens :</b>Citizens can find resources in our platform whether they are doing their work legally or  illegally.</li>
+            <li><b>For Lawyers :</b>Lawyers will get opportunity to explore and get internship . Also it will give them the experience for their future for how to deal with real world problems.</li>
+            <li><b>For Citizens :</b>Citizens can find resources in our platform whether they are doing their work legally or illegally.</li>
             <li><b>For Both :</b>Law solver is an expert source of knowledge for laws, best cases to study , and tools used across the INDIA.</li>
         </ul>
+        </div>
+        <img src={Benefit} alt='Benefit'></img>
        </div>
        <div className='Impact'>
         <h3>Law Solver for creating impact </h3>

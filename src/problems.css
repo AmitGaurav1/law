@@ -6,13 +6,15 @@
     min-width: 20rem;
     width: 30%;
     height: 100%;
-    overflow-y:scroll;
+    margin: 20px;
+    /* overflow-y:scroll; */
 
 }
 #question-box {
     background: #6441A5;
     background: -webkit-linear-gradient(to right, #6441A5, #2a0845);
     background: linear-gradient(to right, #6441A5, #2a0845);
+    margin: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -59,7 +61,6 @@ button:hover {
     justify-content: center;
     min-height: 40rem;
     height: 60vh;
-    margin-top: 5rem;
     gap: 2rem;
 
 }
@@ -69,6 +70,7 @@ button:hover {
     background-color: white;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+    margin-top: 40px;
     padding: 2rem 1rem;
     overflow-y: scroll;
     min-width: 45rem;
