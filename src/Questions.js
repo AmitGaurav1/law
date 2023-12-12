@@ -1,14 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-export const Questions = ({ Question, setQuestions }) => {
-    console.log(Question)
-  const questionAnswer = Question.map((data) => {
-    return (
-      <Link key={data.id} to={`/${data.questionTitle}`}>
-        <h4>{data.questionTitle}</h4>
-        <p>{data.question}</p>
-      </Link>
-    );
-  });
-  return <div className={`${Question.length?"showQuestion":""} questionAnswer`}>{questionAnswer}</div>;
+
+export const Questions = () => {
+  const [questions, setQuestions] = useState([]);
+  const [questionverify, setquestionverify] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3002/questiondata");
+        const data = await response.json();
+        if (data) {
+          setQuestions(data);
+          setquestionverify(true);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+
+    const intervalId = setInterval(fetchData, 10000);
+
+    // Cleanup the interval to prevent memory leaks
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <>
+      <div className={`${questionverify ? "showQuestion" : ""} questionAnswer`}>
+        <div className="lawtitle">Law Solver Q&A</div>
+
+        {questions.map((question, index) => (
+          <div className='questiondesc' key={index}>
+            <h4>{question.title}</h4>
+            <p>{question.question}</p>
+          </div>
+        ))}
+      </div>
+
+    </>
+  );
 };
